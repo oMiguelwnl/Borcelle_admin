@@ -18,6 +18,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
+import ImageUpload from "../custom ui/ImageUpload";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   title: z.string().min(2).max(20),
@@ -26,6 +28,7 @@ const formSchema = z.object({
 });
 
 const CollectionForm = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -78,13 +81,30 @@ const CollectionForm = () => {
             name="image"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Description</FormLabel>
-                <FormControl>{/* Image Upload */}</FormControl>
+                <FormLabel>Image</FormLabel>
+                <FormControl>
+                  <ImageUpload
+                    value={field.value ? [field.value] : []}
+                    onChange={(url) => field.onChange(url)}
+                    onRemove={() => field.onChange("")}
+                  />
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button type="submit">Submit</Button>
+          <div className="flex gap-10 ">
+            <Button type="submit" className="bg-blue-1 text-white">
+              Submit
+            </Button>
+            <Button
+              type="button"
+              className="bg-blue-1 text-white"
+              onClick={() => router.push("/collections")}
+            >
+              Discard
+            </Button>
+          </div>
         </form>
       </Form>
     </div>
