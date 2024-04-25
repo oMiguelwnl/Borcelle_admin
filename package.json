@@ -18,6 +18,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^0.2.1",
     "lucide-react": "^0.373.0",
+    "mongoose": "^8.3.2",
     "next": "14.0.4",
     "next-cloudinary": "^6.5.1",
     "react": "^18",
