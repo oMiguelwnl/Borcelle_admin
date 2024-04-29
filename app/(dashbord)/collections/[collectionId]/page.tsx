@@ -1,7 +1,9 @@
 "use client";
 
-import Loader from "@/components/custom ui/Loader";
 import { useEffect, useState } from "react";
+
+import Loader from "@/components/custom ui/Loader";
+import CollectionForm from "@/components/collections/CollectionForm";
 
 const CollectionDetails = ({
   params,
@@ -17,9 +19,7 @@ const CollectionDetails = ({
       const res = await fetch(`/api/collections/${params.collectionId}`, {
         method: "GET",
       });
-
       const data = await res.json();
-
       setCollectionDetails(data);
       setLoading(false);
     } catch (err) {
@@ -31,7 +31,11 @@ const CollectionDetails = ({
     getCollectionDetails();
   }, []);
 
-  return loading ? <Loader /> : <div>CollectionDetails</div>;
+  return loading ? (
+    <Loader />
+  ) : (
+    <CollectionForm initialData={collectionDetails} />
+  );
 };
 
 export default CollectionDetails;
