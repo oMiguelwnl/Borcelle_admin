@@ -8,7 +8,7 @@ export const POST = async (req: NextRequest) => {
     const { userId } = auth();
 
     if (!userId) {
-      return new NextResponse("unauthorized", { status: 403 });
+      return new NextResponse("Unauthorized", { status: 403 });
     }
 
     await connectToDB();
@@ -22,7 +22,7 @@ export const POST = async (req: NextRequest) => {
     }
 
     if (!title || !image) {
-      return new NextResponse("Title and image are required", { status: 500 });
+      return new NextResponse("Title and image are required", { status: 400 });
     }
 
     const newCollection = await Collection.create({
@@ -44,13 +44,11 @@ export const GET = async (req: NextRequest) => {
   try {
     await connectToDB();
 
-    const collections = await Collection.find().sort({
-      createdAt: "desc",
-    });
+    const collections = await Collection.find().sort({ createdAt: "desc" });
 
     return NextResponse.json(collections, { status: 200 });
   } catch (err) {
-    console.log("[collections_GET", err);
+    console.log("[collections_GET]", err);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 };
