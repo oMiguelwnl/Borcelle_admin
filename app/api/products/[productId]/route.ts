@@ -23,8 +23,14 @@ export const GET = async (
         { status: 404 }
       );
     }
-
-    return NextResponse.json(product, { status: 200 });
+    return new NextResponse(JSON.stringify(product), {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": `${process.env.ECOMMERCE_STORE_URL}`,
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    });
   } catch (err) {
     console.log("[productId_GET]", err);
     return new NextResponse("Internal error", { status: 500 });
@@ -37,10 +43,9 @@ export const POST = async (
 ) => {
   try {
     const { userId } = auth();
+
     if (!userId) {
-      return new NextResponse(JSON.stringify({ message: "Unauthorized" }), {
-        status: 401,
-      });
+      return new NextResponse("Unauthorized", { status: 401 });
     }
 
     await connectToDB();
@@ -50,9 +55,7 @@ export const POST = async (
     if (!product) {
       return new NextResponse(
         JSON.stringify({ message: "Product not found" }),
-        {
-          status: 404,
-        }
+        { status: 404 }
       );
     }
 
@@ -70,7 +73,7 @@ export const POST = async (
     } = await req.json();
 
     if (!title || !description || !media || !category || !price || !expense) {
-      return new NextResponse("Not enough data to create a product", {
+      return new NextResponse("Not enough data to create a new product", {
         status: 400,
       });
     }
@@ -86,13 +89,13 @@ export const POST = async (
     await Promise.all([
       ...addedCollections.map((collectionId: string) =>
         Collection.findByIdAndUpdate(collectionId, {
-          $push: { process: product._id },
+          $push: { products: product._id },
         })
       ),
 
       ...removedCollections.map((collectionId: string) =>
         Collection.findByIdAndUpdate(collectionId, {
-          $pull: { process: product._id },
+          $pull: { products: product._id },
         })
       ),
     ]);
@@ -163,3 +166,5 @@ export const DELETE = async (
     return new NextResponse("Internal error", { status: 500 });
   }
 };
+
+export const dynamic = "force-dynamic";
