@@ -8,6 +8,7 @@ import { columns } from "@/components/collections/CollectionColumns";
 import { DataTable } from "@/components/custom ui/DataTable";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import Loader from "@/components/custom ui/Loader";
 
 const Collections = () => {
   const router = useRouter();
@@ -32,7 +33,9 @@ const Collections = () => {
     getCollections();
   }, []);
 
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="px-10 py-5">
       <div className="flex items-center justify-between">
         <p className="text-heading2-bold">Collections</p>
