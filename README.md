@@ -1,4 +1,4 @@
-dd # Borcelle-admin
+# Borcelle-admin
 
 ## 📜 Descrição
 
@@ -76,5 +76,4 @@ Se você é um desenvolvedor interessado em melhorar o aplicativo e torná-la ai
     <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="linkedin logo"  />
     
   </a>
-  <sub><b>Miguel Rafael</b></sub></a></a>
 </div>
