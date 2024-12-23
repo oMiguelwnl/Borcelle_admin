@@ -19,7 +19,7 @@ export const GET = async (
 
     if (!product) {
       return new NextResponse(
-        JSON.stringify({ message: "Product not found" }),
+        JSON.stringify({ message: "Produto não encontrado" }),
         { status: 404 }
       );
     }
@@ -33,7 +33,7 @@ export const GET = async (
     });
   } catch (err) {
     console.log("[productId_GET]", err);
-    return new NextResponse("Internal error", { status: 500 });
+    return new NextResponse("Erro Interno do Servidor", { status: 500 });
   }
 };
 
@@ -54,7 +54,7 @@ export const POST = async (
 
     if (!product) {
       return new NextResponse(
-        JSON.stringify({ message: "Product not found" }),
+        JSON.stringify({ message: "Produto não encontrado" }),
         { status: 404 }
       );
     }
@@ -73,7 +73,7 @@ export const POST = async (
     } = await req.json();
 
     if (!title || !description || !media || !category || !price || !expense) {
-      return new NextResponse("Not enough data to create a new product", {
+      return new NextResponse("Dados insuficientes para criar um novo produto", {
         status: 400,
       });
     }
@@ -122,7 +122,7 @@ export const POST = async (
     return NextResponse.json(updatedProduct, { status: 200 });
   } catch (err) {
     console.log("[productId_POST]", err);
-    return new NextResponse("Internal error", { status: 500 });
+    return new NextResponse("Erro Interno do Servidor", { status: 500 });
   }
 };
 
@@ -143,7 +143,7 @@ export const DELETE = async (
 
     if (!product) {
       return new NextResponse(
-        JSON.stringify({ message: "Product not found" }),
+        JSON.stringify({ message: "Produto não encontrado" }),
         { status: 404 }
       );
     }
@@ -158,12 +158,12 @@ export const DELETE = async (
       )
     );
 
-    return new NextResponse(JSON.stringify({ message: "Product deleted" }), {
+    return new NextResponse(JSON.stringify({ message: "Produto excluído" }), {
       status: 200,
     });
   } catch (err) {
     console.log("[productId_DELETE]", err);
-    return new NextResponse("Internal error", { status: 500 });
+    return new NextResponse("Erro Interno do Servidor", { status: 500 });
   }
 };
 

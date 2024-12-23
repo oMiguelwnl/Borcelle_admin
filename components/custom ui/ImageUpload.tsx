@@ -36,7 +36,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
             </div>
             <Image
               src={url}
-              alt="collection"
+              alt="coleção"
               className="object-cover rounded-lg"
               fill
             />
@@ -53,7 +53,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
               className="bg-grey-1 text-white"
             >
               <Plus className="h-4 w-4 mr-2" />
-              Upload Image
+              Carregar Imagem
             </Button>
           );
         }}

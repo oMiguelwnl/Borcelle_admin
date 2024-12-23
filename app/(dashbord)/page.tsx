@@ -23,17 +23,17 @@ export default async function Home() {
       <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
         <Card>
           <CardHeader className="flex flex-row justify-between items-center">
-            <CardTitle>Total Revenue</CardTitle>
+            <CardTitle>Receita Total</CardTitle>
             <CircleDollarSign className="max-sm:hidden" />
           </CardHeader>
           <CardContent>
-            <p className="text-body-bold">$ {totalRevenue}</p>
+            <p className="text-body-bold">R$ {totalRevenue}</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row justify-between items-center">
-            <CardTitle>Total Orders</CardTitle>
+            <CardTitle>Total de Pedidos</CardTitle>
             <ShoppingBag className="max-sm:hidden" />
           </CardHeader>
           <CardContent>
@@ -43,7 +43,7 @@ export default async function Home() {
 
         <Card>
           <CardHeader className="flex flex-row justify-between items-center">
-            <CardTitle>Total Customer</CardTitle>
+            <CardTitle>Total de Clientes</CardTitle>
             <UserRound className="max-sm:hidden" />
           </CardHeader>
           <CardContent>
@@ -54,7 +54,7 @@ export default async function Home() {
 
       <Card className="mt-10">
         <CardHeader>
-          <CardTitle>Sales Chart ($)</CardTitle>
+          <CardTitle>Gráfico de Vendas (R$)</CardTitle>
         </CardHeader>
         <CardContent>
           <SalesChart data={graphData} />

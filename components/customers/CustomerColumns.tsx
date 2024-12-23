@@ -9,7 +9,7 @@ export const columns: ColumnDef<CustomerType>[] = [
   },
   {
     accessorKey: "name",
-    header: "Name",
+    header: "Nome",
   },
   {
     accessorKey: "email",

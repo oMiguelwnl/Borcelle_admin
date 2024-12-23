@@ -15,21 +15,21 @@ export const navLinks = [
   {
     url: "/collections",
     icon: <Shapes />,
-    label: "Collections",
+    label: "Coleções",
   },
   {
     url: "/products",
     icon: <Tag />,
-    label: "Products",
+    label: "Produtos",
   },
   {
     url: "/orders",
     icon: <ShoppingBag />,
-    label: "Orders",
+    label: "Pedidos",
   },
   {
     url: "/customers",
     icon: <UsersRound />,
-    label: "Customers",
+    label: "Clientes",
   },
 ];

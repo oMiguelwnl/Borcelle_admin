@@ -29,7 +29,7 @@ export const POST = async (req: NextRequest) => {
     } = await req.json();
 
     if (!title || !description || !media || !category || !price || !expense) {
-      return new NextResponse("Not enough data to create a product", {
+      return new NextResponse("Dados insuficientes para criar um produto", {
         status: 400,
       });
     }
@@ -62,7 +62,7 @@ export const POST = async (req: NextRequest) => {
     return NextResponse.json(newProduct, { status: 200 });
   } catch (err) {
     console.log("[products_POST]", err);
-    return new NextResponse("Internal Error", { status: 500 });
+    return new NextResponse("Erro Interno do Servidor", { status: 500 });
   }
 };
 
@@ -77,7 +77,7 @@ export const GET = async (req: NextRequest) => {
     return NextResponse.json(products, { status: 200 });
   } catch (err) {
     console.log("[products_GET]", err);
-    return new NextResponse("Internal Error", { status: 500 });
+    return new NextResponse("Erro Interno do Servidor", { status: 500 });
   }
 };
 export const dynamic = "force-dynamic";

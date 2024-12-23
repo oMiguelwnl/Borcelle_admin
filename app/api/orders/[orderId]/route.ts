@@ -17,7 +17,7 @@ export const GET = async (
     });
 
     if (!orderDetails) {
-      return new NextResponse(JSON.stringify({ message: "Order Not Found" }), {
+      return new NextResponse(JSON.stringify({ message: "Pedido não encontrado" }), {
         status: 404,
       });
     }
@@ -29,7 +29,7 @@ export const GET = async (
     return NextResponse.json({ orderDetails, customer }, { status: 200 });
   } catch (err) {
     console.log("[orderId_GET]", err);
-    return new NextResponse("Internal Server Error", { status: 500 });
+    return new NextResponse("Erro Interno do Servidor", { status: 500 });
   }
 };
 export const dynamic = "force-dynamic";

@@ -10,8 +10,8 @@ import { ToasterProvider } from "@/lib/ToasterProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Borcelle - Admin Dashboard",
-  description: "Admin dashboard to manage Borcelle's data",
+  title: "Borcelle - Dashboard Administrativo",
+  description: "Painel administrativo para gerenciar os dados do Borcelle",
 };
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="pt">
         <body className={inter.className}>
           <ToasterProvider />
           <div className="flex max-lg:flex-col text-grey-1">

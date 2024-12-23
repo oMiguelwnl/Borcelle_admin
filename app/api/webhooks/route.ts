@@ -74,9 +74,9 @@ export const POST = async (req: NextRequest) => {
       await customer.save();
     }
 
-    return new NextResponse("Order created", { status: 200 });
+    return new NextResponse("Pedido criado com sucesso", { status: 200 });
   } catch (err) {
     console.log("[webhooks_POST]", err);
-    return new NextResponse("Failed to create the order", { status: 500 });
+    return new NextResponse("Erro ao criar pedido", { status: 500 });
   }
 };

@@ -18,7 +18,7 @@ const Orders = () => {
       setOrders(data);
       setLoading(false);
     } catch (err) {
-      console.log("[orders_GET", err);
+      console.log("[orders_GET]", err);
     }
   };
 
@@ -30,7 +30,7 @@ const Orders = () => {
     <Loader />
   ) : (
     <div className="px-10 py-5">
-      <p className="text-heading2-bold">Orders</p>
+      <p className="text-heading2-bold">Pedidos</p>
       <Separator className="bg-grey-1 my-5" />
       <DataTable columns={columns} data={orders} searchKey="_id" />
     </div>

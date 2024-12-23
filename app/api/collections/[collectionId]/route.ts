@@ -19,7 +19,7 @@ export const GET = async (
 
     if (!collection) {
       return new NextResponse(
-        JSON.stringify({ message: "Collection not found" }),
+        JSON.stringify({ message: "Coleção não encontrada" }),
         { status: 404 }
       );
     }
@@ -27,7 +27,7 @@ export const GET = async (
     return NextResponse.json(collection, { status: 200 });
   } catch (err) {
     console.log("[collectionId_GET]", err);
-    return new NextResponse("Internal error", { status: 500 });
+    return new NextResponse("Erro interno", { status: 500 });
   }
 };
 
@@ -47,13 +47,13 @@ export const POST = async (
     let collection = await Collection.findById(params.collectionId);
 
     if (!collection) {
-      return new NextResponse("Collection not found", { status: 404 });
+      return new NextResponse("Coleção não encontrada", { status: 404 });
     }
 
     const { title, description, image } = await req.json();
 
     if (!title || !image) {
-      return new NextResponse("Title and image are required", { status: 400 });
+      return new NextResponse("Título e imagem são obrigatórios", { status: 400 });
     }
 
     collection = await Collection.findByIdAndUpdate(
@@ -67,7 +67,7 @@ export const POST = async (
     return NextResponse.json(collection, { status: 200 });
   } catch (err) {
     console.log("[collectionId_POST]", err);
-    return new NextResponse("Internal error", { status: 500 });
+    return new NextResponse("Erro interno", { status: 500 });
   }
 };
 
@@ -91,10 +91,10 @@ export const DELETE = async (
       { $pull: { collections: params.collectionId } }
     );
 
-    return new NextResponse("Collection is deleted", { status: 200 });
+    return new NextResponse("Coleção deletada", { status: 200 });
   } catch (err) {
     console.log("[collectionId_DELETE]", err);
-    return new NextResponse("Internal error", { status: 500 });
+    return new NextResponse("Erro interno", { status: 500 });
   }
 };
 

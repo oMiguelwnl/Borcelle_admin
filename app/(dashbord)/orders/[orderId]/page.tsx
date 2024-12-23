@@ -13,23 +13,25 @@ const OrderDetails = async ({ params }: { params: { orderId: string } }) => {
   return (
     <div className="flex flex-col p-10 gap-5">
       <p className="text-base-bold">
-        Order ID: <span className="text-base-medium">{orderDetails._id}</span>
+        ID do Pedido:{" "}
+        <span className="text-base-medium">{orderDetails._id}</span>
       </p>
       <p className="text-base-bold">
-        Customer name: <span className="text-base-medium">{customer.name}</span>
+        Nome do Cliente:{" "}
+        <span className="text-base-medium">{customer.name}</span>
       </p>
       <p className="text-base-bold">
-        Shipping address:{" "}
+        Endereço de Envio:{" "}
         <span className="text-base-medium">
           {street}, {city}, {state}, {postalCode}, {country}
         </span>
       </p>
       <p className="text-base-bold">
-        Total Paid:{" "}
+        Total Pago:{" "}
         <span className="text-base-medium">${orderDetails.totalAmount}</span>
       </p>
       <p className="text-base-bold">
-        Shipping rate ID:{" "}
+        ID da Taxa de Envio:{" "}
         <span className="text-base-medium">{orderDetails.shippingRate}</span>
       </p>
       <DataTable

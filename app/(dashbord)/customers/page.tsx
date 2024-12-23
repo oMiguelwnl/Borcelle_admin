@@ -11,7 +11,7 @@ const Customers = async () => {
 
   return (
     <div className="px-10 py-5">
-      <p className="text-heading2-bold">Customers</p>
+      <p className="text-heading2-bold">Clientes</p>
       <Separator className="bg-grey-1 my-5" />
       <DataTable columns={columns} data={customers} searchKey="name" />
     </div>

@@ -13,7 +13,7 @@ export const GET = async (
 
     if (!product) {
       return new NextResponse(
-        JSON.stringify({ message: "Product not found" }),
+        JSON.stringify({ message: "Produto não encontrado" }),
         { status: 404 }
       );
     }
@@ -28,7 +28,7 @@ export const GET = async (
 
     if (!relatedProducts) {
       return new NextResponse(
-        JSON.stringify({ message: "No related products found" }),
+        JSON.stringify({ message: "Nenhum produto relacionado encontrado" }),
         { status: 404 }
       );
     }
@@ -36,7 +36,7 @@ export const GET = async (
     return NextResponse.json(relatedProducts, { status: 200 });
   } catch (err) {
     console.log("[related_GET", err);
-    return new NextResponse("Internal Server Error", { status: 500 });
+    return new NextResponse("Erro interno do servidor", { status: 500 });
   }
 };
 

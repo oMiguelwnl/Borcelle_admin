@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
     const { cartItems, customer } = await req.json();
 
     if (!cartItems || !customer) {
-      return new NextResponse("Not enough data to checkout", { status: 400 });
+      return new NextResponse("Dados insuficientes para o checkout", { status: 400 });
     }
 
     const session = await stripe.checkout.sessions.create({
@@ -50,6 +50,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(session, { headers: corsHeaders });
   } catch (err) {
     console.log("[checkout_POST]", err);
-    return new NextResponse("Internal Server Error", { status: 500 });
+    return new NextResponse("Erro interno no servidor", { status: 500 });
   }
 }

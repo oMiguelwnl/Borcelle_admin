@@ -18,11 +18,11 @@ export const POST = async (req: NextRequest) => {
     const existingCollection = await Collection.findOne({ title });
 
     if (existingCollection) {
-      return new NextResponse("Collection already exists", { status: 400 });
+      return new NextResponse("Coleção já existe", { status: 400 });
     }
 
     if (!title || !image) {
-      return new NextResponse("Title and image are required", { status: 400 });
+      return new NextResponse("Título e imagem são obrigatórios", { status: 400 });
     }
 
     const newCollection = await Collection.create({
@@ -36,7 +36,7 @@ export const POST = async (req: NextRequest) => {
     return NextResponse.json(newCollection, { status: 200 });
   } catch (err) {
     console.log("[collections_POST]", err);
-    return new NextResponse("Internal Server Error", { status: 500 });
+    return new NextResponse("Erro interno do servidor", { status: 500 });
   }
 };
 
@@ -49,7 +49,7 @@ export const GET = async (req: NextRequest) => {
     return NextResponse.json(collections, { status: 200 });
   } catch (err) {
     console.log("[collections_GET]", err);
-    return new NextResponse("Internal Server Error", { status: 500 });
+    return new NextResponse("Erro interno do servidor", { status: 500 });
   }
 };
 

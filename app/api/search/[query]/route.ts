@@ -20,7 +20,8 @@ export const GET = async (
     return NextResponse.json(searchedProducts, { status: 200 });
   } catch (err) {
     console.log("[search_GET]", err);
-    return new NextResponse("Internal Server Error", { status: 500 });
+    return new NextResponse("Erro Interno do Servidor", { status: 500 });
+
   }
 };
 

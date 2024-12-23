@@ -36,11 +36,11 @@ const Delete: React.FC<DeleteProps> = ({ item, id }) => {
       if (res.ok) {
         setLoading(false);
         window.location.href = `/${itemType}`;
-        toast.success(`${item} deleted`);
+        toast.success(`${item} excluído`);
       }
     } catch (err) {
       console.log(err);
-      toast.error("Something went wrong! Please try again.");
+      toast.error("Algo deu errado! Tente novamente.");
     }
   };
   return (
@@ -53,17 +53,17 @@ const Delete: React.FC<DeleteProps> = ({ item, id }) => {
       <AlertDialogContent className="bg-white text-grey-1">
         <AlertDialogHeader>
           <AlertDialogTitle className="text-red-1">
-            Are you absolutely sure?
+            Você tem certeza?
           </AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your{" "}
+            Esta ação não pode ser desfeita. Isso excluirá permanentemente o{" "}
             {item}.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel>Cancelar</AlertDialogCancel>
           <AlertDialogAction className="bg-red-1 text-white" onClick={onDelete}>
-            Delete
+            Excluir
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
